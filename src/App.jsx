@@ -1187,6 +1187,43 @@ const TRAVEL_GUIDES = [
   { id: "packing-east-africa", title: "Packing for East Africa, Properly", category: "Travel Tips", excerpt: "What a coast-to-savannah itinerary actually demands from a carry-on." },
 ];
 
+// Guide services requested by the client. Descriptions are kept short and
+// generic on purpose — no qualifications, certifications, prices or other
+// specific claims have been provided yet, so none are stated here.
+const SERVICES = [
+  {
+    slug: "historical-guides",
+    name: "Historical Guides",
+    blurb: "Guides focused on the history, heritage and historic sites of each destination.",
+    image: "HISTORICAL GUIDES IMAGE",
+  },
+  {
+    slug: "adventure-guides",
+    name: "Adventure Guides",
+    blurb: "Guides for active, adventure-focused experiences such as hiking, trekking and outdoor activities.",
+    image: "ADVENTURE GUIDES IMAGE",
+  },
+  {
+    slug: "cultural-guides",
+    name: "Cultural Guides",
+    blurb: "Guides who introduce visitors to local culture, communities and traditions.",
+    image: "CULTURAL GUIDES IMAGE",
+  },
+  {
+    slug: "professional-guides",
+    name: "Professional Guides",
+    heading: "Our Professional Guide Service",
+    blurb: "Experienced guides for structured, professionally-run itineraries.",
+    image: "PROFESSIONAL GUIDES IMAGE",
+  },
+  {
+    slug: "specialized-guides",
+    name: "Specialized Guides",
+    blurb: "Guides for specific interests such as birdwatching, photography and other specialised activities.",
+    image: "SPECIALIZED GUIDES IMAGE",
+  },
+];
+
 const NAV_LINKS = [
   { label: "Home", page: "home" },
   { label: "Destinations", page: "destinations" },
@@ -1204,6 +1241,8 @@ const PAGE_META = {
   experiences: { title: "Experiences — Africa Dining & Travel Guide", desc: "Book curated safaris, dhow cruises, balloon flights and cultural experiences across East and Southern Africa." },
   dining: { title: "Dining — Africa Dining & Travel Guide", desc: "Swahili seafood, chef-led tasting rooms and farm lunches — dining experiences across our destinations." },
   guide: { title: "Travel Guide — Africa Dining & Travel Guide", desc: "Destination notes, seasonal advice and dining recommendations from our travel guide." },
+  services: { title: "Our Services — Africa Dining & Travel Guide", desc: "Historical, adventure, cultural, professional and specialised guide services for your trip." },
+  service: { title: "Our Services — Africa Dining & Travel Guide", desc: "Guide services for how you like to explore." },
   gallery: { title: "Gallery — Africa Dining & Travel Guide", desc: "Photography from across our African destinations." },
   about: { title: "About — Africa Dining & Travel Guide", desc: "Who plans your journey, and why." },
   contact: { title: "Contact — Africa Dining & Travel Guide", desc: "Get in touch to start planning your trip." },
@@ -2656,6 +2695,21 @@ function TravelGuidePage({ navigate }) {
         </div>
       </section>
 
+      <section className="section section-sand">
+        <div className="container container-narrow" style={{ textAlign: "center" }}>
+          <Reveal>
+            <Eyebrow tone="teal">Guided Travel</Eyebrow>
+            <h2 className="section-title">Prefer to travel with a guide?</h2>
+            <p className="section-lede" style={{ margin: "14px auto 0" }}>
+              From historical context to hands-on adventure, our guide services are built around how you like to explore.
+            </p>
+            <div className="hero-ctas" style={{ justifyContent: "center", marginTop: 28 }}>
+              <Button variant="primary" icon={ArrowRight} onClick={() => navigate("services")}>Our Services</Button>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section section-forest">
         <div className="container guide-social">
           <Reveal className="guide-social-inner">
@@ -2675,6 +2729,74 @@ function TravelGuidePage({ navigate }) {
                 {waHref(SITE_CONFIG.contact.whatsappNumber) && <a href={waHref(SITE_CONFIG.contact.whatsappNumber)} aria-label={`${SITE_CONFIG.business.name} on WhatsApp`} target="_blank" rel="noreferrer noopener"><MessageCircle size={20} /></a>}
               </div>
             </div>
+          </Reveal>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+/* ----------------------------------------------------------------------------
+   12b. PAGES: OUR SERVICES (list + detail)
+---------------------------------------------------------------------------- */
+
+function ServicesPage({ navigate }) {
+  return (
+    <div className="page-shell">
+      <PageHero eyebrow="Travel Guide" title="Our Services" sub="Guide services for how you like to explore — pick the style that fits your trip." tone="forest" />
+      <section className="section section-sand">
+        <div className="container">
+          <div className="listing-grid listing-grid-3">
+            {SERVICES.map((s) => (
+              <Reveal key={s.slug} className="exp-card">
+                <button className="exp-card-media-btn" onClick={() => navigate("service", s.slug)} aria-label={`View ${s.name}`}>
+                  <PlaceholderImage label={s.image} tone="gold" ratio="4 / 3" className="exp-card-media" />
+                </button>
+                <div className="exp-card-body">
+                  <h3><A page="service" param={s.slug} navigate={navigate}>{s.name}</A></h3>
+                  <p>{s.blurb}</p>
+                  <div className="exp-card-footer">
+                    <A page="service" param={s.slug} navigate={navigate} className="card-link">Learn More <ArrowRight size={15} /></A>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function ServiceDetailPage({ id, navigate }) {
+  const service = SERVICES.find((s) => s.slug === id);
+  if (!service) return <NotFoundPage navigate={navigate} backPage="services" label="service" />;
+
+  return (
+    <div className="page-shell">
+      <section className="detail-hero">
+        <PlaceholderImage label={service.image} tone="gold" ratio="auto" rounded="rounded-none" className="detail-hero-media" />
+        <div className="hero-overlay" aria-hidden="true" />
+        <div className="detail-hero-content">
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <A page="home" navigate={navigate}>Home</A>
+            <ChevronRight size={13} />
+            <A page="services" navigate={navigate}>Our Services</A>
+            <ChevronRight size={13} />
+            <span aria-current="page">{service.name}</span>
+          </nav>
+          <h1 className="detail-hero-title">{service.name}</h1>
+        </div>
+      </section>
+
+      <section className="section section-sand">
+        <div className="container container-narrow legal-copy">
+          {service.heading && <h2 className="section-title">{service.heading}</h2>}
+          <p className="detail-intro-text">{service.blurb}</p>
+          <Reveal className="section-cta" style={{ textAlign: "left", marginTop: 32 }}>
+            <Button variant="secondary" onClick={() => navigate("services")}>
+              <ChevronLeft size={16} style={{ marginRight: 6 }} /> Back to Services
+            </Button>
           </Reveal>
         </div>
       </section>
@@ -3603,6 +3725,12 @@ export default function App() {
       break;
     case "guide":
       page = <TravelGuidePage navigate={navigate} />;
+      break;
+    case "services":
+      page = <ServicesPage navigate={navigate} />;
+      break;
+    case "service":
+      page = <ServiceDetailPage id={route.param} navigate={navigate} />;
       break;
     case "gallery":
       page = <GalleryPage />;
