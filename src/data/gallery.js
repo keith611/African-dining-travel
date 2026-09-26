@@ -1,0 +1,62 @@
+export const GALLERY = [
+  { id: "g1", label: "MOMBASA OLD TOWN DOORWAY", destinationSlug: "mombasa", tall: true },
+  { id: "g2", label: "MAASAI MARA BALLOON DAWN", destinationSlug: "maasai-mara" },
+  { id: "g3", label: "ZANZIBAR SANDBANK", destinationSlug: "zanzibar" },
+  { id: "g4", label: "CAPE TOWN TABLE MOUNTAIN", destinationSlug: "cape-town", tall: true },
+  { id: "g5", label: "DIANI BEACH SHORELINE", destinationSlug: "diani" },
+  { id: "g6", label: "NAIROBI GIRAFFE CENTRE", destinationSlug: "nairobi" },
+  { id: "g7", label: "FORT JESUS RAMPARTS", destinationSlug: "mombasa" },
+  { id: "g8", label: "WILDEBEEST RIVER CROSSING", destinationSlug: "maasai-mara", tall: true },
+  { id: "g9", label: "STONE TOWN SPICE MARKET", destinationSlug: "zanzibar" },
+  { id: "g10", label: "BOULDERS BEACH PENGUINS", destinationSlug: "cape-town" },
+  { id: "g11", label: "SWAHILI SEAFOOD PLATTER", destinationSlug: "mombasa" },
+  { id: "g12", label: "WINELANDS VINEYARD ROWS", destinationSlug: "cape-town" },
+  { id: "g13", label: "LAKE NAKURU RHINO SIGHTING", destinationSlug: "kenya" },
+  { id: "g14", label: "MAASAI MARA LION SIGHTING", destinationSlug: "maasai-mara" },
+  { id: "g15", label: "MAASAI MARA ELEPHANT CALF", destinationSlug: "maasai-mara", tall: true },
+  { id: "g16", label: "MOMBASA TUDOR CREEK AT DUSK", destinationSlug: "mombasa" },
+  // The following are strong client photos without a specific confirmed
+  // destination match — shown in the general gallery rather than guessed
+  // onto a destination page.
+  { id: "g17", label: "SAFARI ANTELOPE (ELAND)" },
+  { id: "g18", label: "HELL'S GATE GORGE WATERFALL", destinationSlug: "kenya" },
+  { id: "g19", label: "LAKE NAKURU FLAMINGOS", tall: true },
+  { id: "g20", label: "COASTAL EVENING AT SIMBA SALOON" },
+  { id: "g21", label: "RESORT WALKWAY AT NIGHT", tall: true },
+  { id: "g22", label: "SAFARI LODGE BAR" },
+  { id: "g23", label: "ZEBRA HERD GRAZING" },
+  { id: "g24", label: "LAKE NAKURU JACANA", destinationSlug: "kenya" },
+  { id: "g25", label: "MORNING COFFEE ON SAFARI" },
+  { id: "g26", label: "LAKE NAKURU GREY HERON", destinationSlug: "kenya" },
+  { id: "g27", label: "MAASAI MARA CHEETAH CHASE", destinationSlug: "maasai-mara", tall: true },
+  { id: "g28", label: "MAASAI MARA LIONS BY TRACK", destinationSlug: "maasai-mara" },
+  { id: "g29", label: "BALLOON LAUNCH AT DAWN", destinationSlug: "maasai-mara" },
+  { id: "g30", label: "AERIAL HIPPO POOL", destinationSlug: "maasai-mara" },
+  { id: "g31", label: "BALLOON OVER THE RIVER", destinationSlug: "maasai-mara", tall: true },
+  { id: "g32", label: "EVENING DINING BY CANDLELIGHT" },
+  { id: "g33", label: "MOUNTAIN GORILLA IN THE FOREST", destinationSlug: "uganda", tall: true },
+  { id: "g34", label: "MOUNTAIN GORILLA CLOSE-UP", destinationSlug: "uganda", tall: true },
+  { id: "g35", label: "HIGHLAND LAKE VIEW", destinationSlug: "uganda" },
+  { id: "g36", label: "LAKESIDE VILLAGE VIEW", destinationSlug: "uganda" },
+  { id: "g37", label: "CANOE ON THE LAKE", destinationSlug: "uganda" },
+  { id: "g38", label: "THATCHED LODGE COTTAGE", destinationSlug: "uganda" },
+  { id: "g39", label: "LODGE COTTAGE GARDEN", destinationSlug: "uganda" },
+  { id: "g40", label: "LODGE DINING HALL", destinationSlug: "uganda" },
+  { id: "g41", label: "LODGE COTTAGE AT DUSK", destinationSlug: "uganda" },
+  { id: "g42", label: "LODGE GROUNDS", destinationSlug: "uganda", tall: true },
+  { id: "g43", label: "AFRICAN FISH EAGLE" },
+  { id: "g44", label: "BABOONS ON A LOG" },
+  { id: "g45", label: "LAKE NAKURU HERON ON A POST", destinationSlug: "kenya", tall: true },
+  { id: "g46", label: "ACACIA SUNSET SILHOUETTE" },
+  { id: "g47", label: "ELEPHANT GRAZING" },
+  { id: "g48", label: "CAPE BUFFALO PORTRAIT", tall: true },
+  { id: "g49", label: "ELEPHANT HERD BY THE RIVER" },
+  { id: "g50", label: "HELL'S GATE ROCK HYRAX", destinationSlug: "kenya", tall: true },
+];
+
+// ── DEMO CONTENT ─────────────────────────────────────────────────────────
+// These quotes were not supplied by the client. They exist only to show
+// how the testimonials section looks with content in it. Replace with real
+// reviews when available, or set TESTIMONIALS to [] to hide the section —
+// TestimonialsSection below already handles the empty case.
+
