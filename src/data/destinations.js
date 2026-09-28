@@ -9,7 +9,7 @@ export const DESTINATIONS = [
     tagline: "Coastlines, capital city and classic savannah, all in one country",
     accent: "teal",
     heroImage: "HOT AIR BALLOONS AT DAWN",
-    cardImage: "ELEPHANT HERD ON SAFARI — KENYA IMAGE",
+    cardImage: "KENYA WILD DOGS",
     description:
       "Kenya pairs the classic safari circuit — the Maasai Mara, Amboseli, Samburu and beyond — with a working coastline of dhow harbours and reef-sheltered beaches, and a capital city where wildlife and skyline share a fence line.",
     bestTime: "June – October (dry season) for most parks; the coast is a year-round destination",
