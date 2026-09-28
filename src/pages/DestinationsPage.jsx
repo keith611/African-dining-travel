@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import { VISIBLE_DESTINATIONS } from "../data/destinations.js";
+import { DESTINATIONS, VISIBLE_DESTINATIONS } from "../data/destinations.js";
 import { DestinationCard } from "../components/Cards.jsx";
 import { PageHero } from "../components/PageHero.jsx";
 
 export default function DestinationsPage({ navigate }) {
-  const regions = ["All", ...Array.from(new Set(VISIBLE_DESTINATIONS.flatMap((d) => d.tags)))];
+  const regions = ["All", ...Array.from(new Set(DESTINATIONS.flatMap((d) => d.tags)))];
   const [filter, setFilter] = useState("All");
-  const filtered = filter === "All" ? VISIBLE_DESTINATIONS : VISIBLE_DESTINATIONS.filter((d) => d.tags.includes(filter));
+  // “All” keeps the broad country/region cards. A category chip expands to
+  // matching destination pages too, including places nested under a country.
+  const filtered = filter === "All"
+    ? VISIBLE_DESTINATIONS
+    : DESTINATIONS.filter((d) => d.tags.includes(filter));
 
   return (
     <div className="page-shell">
@@ -20,7 +24,10 @@ export default function DestinationsPage({ navigate }) {
               </button>
             ))}
           </div>
-          <div className="listing-grid">
+          <p className="section-note" aria-live="polite">
+            {filter === "All" ? "Showing countries and regions" : `Showing ${filtered.length} ${filter.toLowerCase()} destinations`}
+          </p>
+          <div className="listing-grid" aria-live="polite">
             {filtered.map((d) => (
               <DestinationCard key={d.id} destination={d} navigate={navigate} />
             ))}
