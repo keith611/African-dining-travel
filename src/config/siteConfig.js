@@ -27,7 +27,7 @@ export function waHref(number) { return number ? `https://wa.me/${number}` : nul
 
 // Official client-supplied logo, transparent-background PNG (map + wordmark
 // only — the "leisure - discoveries" tagline strip is cropped out so the
-// mark sits directly on the header's green background without looking like
+// mark sits directly on the header's light background without looking like
 // a sticker). Rendered with no card/box — see .brand-logo-wrap below.
 export const NAV_LINKS = [
   { label: "Home", page: "home" },
