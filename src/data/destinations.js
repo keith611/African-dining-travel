@@ -60,7 +60,7 @@ export const DESTINATIONS = [
         ],
       },
     ],
-    gallery: ["CHEETAHS ON THE CHASE", "MOMBASA TUDOR CREEK AT DUSK", "GIRAFFE CENTRE", "HOT AIR BALLOONS AT DAWN"],
+    gallery: ["CHEETAHS ON THE CHASE", "MOMBASA TUDOR CREEK AT DUSK", "GIRAFFE CENTRE", "HOT AIR BALLOONS AT DAWN", "KENYA WILD DOGS"],
   },
   {
     id: "amboseli", name: "Amboseli National Park", country: "Kenya", region: "Safari",
