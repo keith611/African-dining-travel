@@ -14,6 +14,7 @@ export function GlobalStyles() {
         --sand: #F7F3EA;
         --earth: #E8DDC8;
         --dark: #17201D;
+        --brand-ink: #403830;
         --white: #FFFFFF;
         --radius-lg: 22px;
         --radius-md: 14px;
@@ -114,7 +115,7 @@ export function GlobalStyles() {
       .navbar-inner { max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
       .navbar-solid { background: rgba(255,255,255,0.98); box-shadow: 0 8px 24px -18px rgba(0,0,0,0.28); }
       .navbar-solid .navbar-inner { padding: 12px 24px; }
-      .navbar-solid .nav-link { color: var(--forest); }
+      .navbar-solid .nav-link { color: var(--brand-ink); }
       .navbar-solid .nav-burger { color: var(--gold); }
       .navbar-transparent { background: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent); }
       .brand { display: flex; align-items: center; gap: 10px; }
@@ -137,9 +138,10 @@ export function GlobalStyles() {
       .nav-mobile { max-height: 0; overflow: hidden; background: var(--white); transition: max-height .4s ease; }
       .nav-mobile.is-open { max-height: 560px; }
       .nav-mobile-links { display: flex; flex-direction: column; padding: 8px 24px 0; }
-      .nav-mobile-link { color: var(--forest); padding: 14px 0; border-bottom: 1px solid rgba(20,37,31,0.12); font-size: 1rem; letter-spacing: 0.03em; opacity: 0; transform: translateY(8px); transition: opacity .35s ease, transform .35s ease; }
+      .navbar-solid .nav-mobile-link { color: var(--brand-ink); }
+      .nav-mobile-link { padding: 14px 0; border-bottom: 1px solid rgba(20,37,31,0.12); font-size: 1rem; letter-spacing: 0.03em; opacity: 0; transform: translateY(8px); transition: opacity .35s ease, transform .35s ease; }
       .nav-mobile.is-open .nav-mobile-link { opacity: 1; transform: translateY(0); }
-      .nav-mobile-link.is-active { color: var(--gold); }
+      .nav-mobile-link.is-active { color: var(--brand-ink); font-weight: 600; }
       .nav-mobile-cta { margin: 18px 24px 24px; justify-content: center; }
 
       @media (min-width: 960px) {
