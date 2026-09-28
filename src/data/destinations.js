@@ -76,7 +76,7 @@ export const DESTINATIONS = [
   },
   {
     id: "samburu", name: "Samburu Game Reserve", country: "Kenya", region: "Safari",
-    hidden: true, tags: ["Wildlife", "Safari", "Culture"], coordinates: "0.62°N, 37.53°E",
+    hidden: true, tags: ["Wildlife", "Safari", "Wilderness", "Culture"], coordinates: "0.62°N, 37.53°E",
     tagline: "Wildlife and rugged landscapes in Kenya’s northern frontier", accent: "gold",
     heroImage: "SAMBURU LANDSCAPE", cardImage: "SAMBURU ZEBRA",
     description: "Samburu’s dry northern landscape is home to distinctive wildlife and the Ewaso Ng’iro River, which draws animals through the reserve.",
@@ -106,7 +106,7 @@ export const DESTINATIONS = [
     // Now reachable via its country's cross-link (see VISIBLE_DESTINATIONS,
     // which excludes anything hidden: true) rather than as a top-level card.
     hidden: true,
-    tags: ["Coastal", "Culture"],
+    tags: ["Coastal", "City", "Culture"],
     coordinates: "4.05°S, 39.66°E",
     tagline: "Where the Indian Ocean meets centuries of Swahili history",
     accent: "teal",
@@ -372,7 +372,7 @@ export const DESTINATIONS = [
     // is no longer a top-level destination — it now lives under "South Africa".
     // See VISIBLE_DESTINATIONS below, which excludes anything hidden: true.
     hidden: true,
-    tags: ["City", "Coastal", "Culture"],
+    tags: ["City", "Coastal", "Culture", "Adventure"],
     coordinates: "33.92°S, 18.42°E",
     tagline: "A city held between a flat-topped mountain and two oceans",
     accent: "gold",
