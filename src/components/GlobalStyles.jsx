@@ -92,7 +92,7 @@ export function GlobalStyles() {
       /* ---------- Placeholder media ---------- */
       .ph-media { position: relative; overflow: hidden; width: 100%; display: flex; align-items: center; justify-content: center; }
       .ph-media-real { background: var(--earth); }
-      .ph-media-real img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .ph-media-real img { width: 100%; height: auto; object-fit: contain; display: block; }
       .ph-pattern { position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 16px); }
       .ph-content { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 1rem; color: var(--forest); opacity: 0.75; }
       .ph-content.is-dark { color: var(--white); }
@@ -153,9 +153,8 @@ export function GlobalStyles() {
 
       /* ---------- Hero ---------- */
       .hero { position: relative; height: 100vh; min-height: 560px; display: flex; align-items: center; overflow: hidden; }
-      .hero-media { position: absolute; inset: 0; height: 100%; animation: kenburns 22s ease-in-out infinite alternate; }
-      .hero-media img { object-position: 42% 62%; }
-      @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.09); } }
+      .hero-media { position: absolute; inset: 0; height: 100%; }
+      .hero-media img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
       .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,37,31,0.62) 0%, rgba(20,37,31,0.48) 45%, rgba(20,37,31,0.88) 100%); }
       .hero-content { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; padding: 0 24px; text-align: center; color: var(--white); }
       .hero-title { font-size: clamp(2.3rem, 6vw, 4rem); line-height: 1.15; color: var(--white); letter-spacing: 0.005em; animation: fadeSlideUp 1s ease both .15s; }
@@ -285,6 +284,7 @@ export function GlobalStyles() {
       /* ---------- Detail hero (destination/experience/dining) ---------- */
       .detail-hero { position: relative; height: 62vh; min-height: 420px; display: flex; align-items: flex-end; overflow: hidden; }
       .detail-hero-media { position: absolute; inset: 0; height: 100%; }
+      .detail-hero-media img { width: 100%; height: 100%; object-fit: contain; }
       .detail-hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 24px 44px; width: 100%; color: var(--white); }
       .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: rgba(247,243,234,0.8); margin-bottom: 18px; flex-wrap: wrap; }
       .breadcrumb a:hover { color: var(--gold-light); }
@@ -455,7 +455,6 @@ export function GlobalStyles() {
 
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
-        .hero-media { animation: none; }
         .reveal { opacity: 1; transform: none; }
       }
     `}</style>
