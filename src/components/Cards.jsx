@@ -16,7 +16,7 @@ export function DestinationCard({ destination, navigate, featured = false }) {
         <PlaceholderImage
           label={destination.cardImage}
           tone={destination.accent}
-          ratio={featured ? "5 / 4" : "4 / 5"}
+          ratio="4 / 5"
           className="dest-card-media"
         />
         <CoordStamp label={destination.coordinates} className="dest-card-stamp" />
@@ -91,4 +91,3 @@ export function DiningCard({ item, navigate, onBook }) {
 /* ----------------------------------------------------------------------------
    7. PAGE: HOME
 ---------------------------------------------------------------------------- */
-
