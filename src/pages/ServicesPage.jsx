@@ -13,7 +13,7 @@ export default function ServicesPage({ navigate }) {
             {SERVICES.map((s) => (
               <Reveal key={s.slug} className="exp-card">
                 <button className="exp-card-media-btn" onClick={() => navigate("service", s.slug)} aria-label={`View ${s.name}`}>
-                  <PlaceholderImage label={s.image} tone="gold" ratio={s.slug === "historical-guides" ? "18 / 43" : "4 / 5"} className="exp-card-media" fit="contain" />
+                  <PlaceholderImage label={s.image} tone="gold" ratio="4 / 5" className="exp-card-media" fit="contain" />
                 </button>
                 <div className="exp-card-body">
                   <h3><A page="service" param={s.slug} navigate={navigate}>{s.name}</A></h3>
