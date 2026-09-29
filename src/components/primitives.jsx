@@ -8,34 +8,6 @@ import {
 import { useReveal } from "../hooks/useReveal.js";
 import { IMAGE_LIBRARY } from "../data/images.js";
 
-const FULL_FRAME_PHOTO_LABELS = new Set([
-  "BIG CAT TERRITORIES",
-  "TRAVEL GUIDE FEATURE IMAGE",
-  "BIRD IN TREE",
-  "FLAMINGO BY WATER",
-  "BIRD ON PATH",
-  "WADING BIRD AMONG REEDS",
-  "GREY HERON IN SHALLOWS",
-  "HERON BY WATER",
-  "BLACK AND WHITE BIRD",
-  "ADVENTURE GUIDES IMAGE",
-  "CULTURAL GUIDES IMAGE",
-  "HISTORICAL GUIDES IMAGE",
-  "AMBOSELI ELEPHANTS",
-  "SAMBURU ZEBRA",
-  "SAMBURU LANDSCAPE",
-  "SAMBURU ANTELOPE",
-  "LAKE NAKURU RHINO",
-  "LAKE NAKURU ANTELOPE",
-  "MAASAI MARA — SAVANNAH IMAGE",
-  "MARA BALLOON SAFARI IMAGE",
-  "BALLOON LAUNCH AT DAWN",
-  "DHOW SUNSET CRUISE IMAGE",
-  "TAMARIND DHOW DINNER IMAGE",
-  "NYAMA CHOMA GARDEN IMAGE",
-  "CHEFS TASTING ROOM IMAGE",
-]);
-
 export const TONE_GRADIENTS = {
   sand: "linear-gradient(135deg, #E8DDC8 0%, #F7F3EA 65%)",
   forest: "linear-gradient(135deg, #24463A 0%, #14251F 75%)",
@@ -56,27 +28,19 @@ export function Reveal({ children, delay = 0, className = "", as: Tag = "div" })
   );
 }
 
-export function PlaceholderImage({ label, ratio = "4 / 3", tone = "sand", icon: Icon = ImageIcon, className = "", rounded = "rounded-lg", fit = "cover" }) {
+export function PlaceholderImage({ label, ratio = "4 / 3", tone = "sand", icon: Icon = ImageIcon, className = "", rounded = "rounded-lg" }) {
   const realSrc = IMAGE_LIBRARY[label];
 
   if (realSrc) {
-    const frameClass = fit === "natural"
-      ? ""
-      : fit === "contain"
-      ? "ph-media-full-frame"
-      : FULL_FRAME_PHOTO_LABELS.has(label) ? "ph-media-full-frame" : "";
     return (
       <div
-        className={`ph-media ph-media-real ${frameClass} ${rounded} ${className}`}
-        style={{ aspectRatio: fit === "natural" ? "auto" : ratio }}
+        className={`ph-media ph-media-real ${rounded} ${className}`}
+        style={{ aspectRatio: ratio }}
       >
         <img
           src={realSrc}
           alt={label.replace(/—/g, "-")}
           loading="lazy"
-          style={fit === "natural"
-            ? { height: "auto" }
-            : fit === "contain" || FULL_FRAME_PHOTO_LABELS.has(label) ? { objectFit: "contain" } : undefined}
         />
       </div>
     );
