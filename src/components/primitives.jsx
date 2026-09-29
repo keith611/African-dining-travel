@@ -51,19 +51,19 @@ export function PlaceholderImage({ label, ratio = "4 / 3", tone = "sand", icon: 
   const realSrc = IMAGE_LIBRARY[label];
 
   if (realSrc) {
-    const frameClass = fit === "contain-blur"
-      ? "ph-media-blur-fill"
+    const frameClass = fit === "contain"
+      ? "ph-media-full-frame"
       : FULL_FRAME_PHOTO_LABELS.has(label) ? "ph-media-full-frame" : "";
     return (
       <div
         className={`ph-media ph-media-real ${frameClass} ${rounded} ${className}`}
-        style={{ aspectRatio: ratio, ...(fit === "contain-blur" ? { "--ph-media-image": `url("${realSrc}")` } : {}) }}
+        style={{ aspectRatio: ratio }}
       >
         <img
           src={realSrc}
           alt={label.replace(/—/g, "-")}
           loading="lazy"
-          style={fit === "contain-blur" || FULL_FRAME_PHOTO_LABELS.has(label) ? { objectFit: "contain" } : undefined}
+          style={fit === "contain" || FULL_FRAME_PHOTO_LABELS.has(label) ? { objectFit: "contain" } : undefined}
         />
       </div>
     );
