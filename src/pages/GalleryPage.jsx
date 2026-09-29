@@ -44,7 +44,7 @@ export default function GalleryPage() {
               const destination = DESTINATIONS.find((d) => d.id === g.destinationSlug);
               return (
                 <button key={g.id} className={`masonry-item ${g.tall ? "is-tall" : ""}`} onClick={() => openAt(i)} aria-label={`Open image: ${g.label}`}>
-                  <PlaceholderImage label={g.label} tone={destination?.accent || "sand"} ratio={g.ratio || (g.tall ? "3 / 4.4" : "4 / 3")} />
+                  <PlaceholderImage label={g.label} tone={destination?.accent || "sand"} ratio={g.tall ? "3 / 4.4" : "4 / 3"} />
                 </button>
               );
             })}

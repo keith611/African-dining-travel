@@ -35,7 +35,7 @@ export function PlaceholderImage({ label, ratio = "4 / 3", tone = "sand", icon: 
     return (
       <div
         className={`ph-media ph-media-real ${rounded} ${className}`}
-        style={{ aspectRatio: "auto" }}
+        style={{ aspectRatio: ratio }}
       >
         <img
           src={realSrc}
