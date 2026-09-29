@@ -88,7 +88,7 @@ export default function DestinationDetailPage({ id, navigate, onBook }) {
             <div className="offer-grid">
               {destination.categories[activeCategory].items.map((item) => (
                 <Reveal key={item.name} className="offer-card">
-                  <PlaceholderImage label={item.image || `${item.name.toUpperCase()} IMAGE`} tone={destination.accent} ratio="4 / 3" />
+                  <PlaceholderImage label={item.image || `${item.name.toUpperCase()} IMAGE`} tone={destination.accent} ratio="4 / 3" fit={item.image === "BIG CAT TERRITORIES" ? "natural" : "cover"} />
                   <h4>{item.name}</h4>
                   {item.region && <span className="offer-region"><MapPin size={12} aria-hidden="true" /> {item.region}</span>}
                   <p>{item.blurb}</p>
