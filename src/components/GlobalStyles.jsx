@@ -93,6 +93,8 @@ export function GlobalStyles() {
       .ph-media { position: relative; overflow: hidden; width: 100%; display: flex; align-items: center; justify-content: center; }
       .ph-media-real { background: var(--earth); }
       .ph-media-real img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .ph-media-real.ph-media-full-frame { background: #F8F2E8; }
+      .ph-media-real.ph-media-full-frame img { object-fit: contain; }
       .ph-pattern { position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 16px); }
       .ph-content { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 1rem; color: var(--forest); opacity: 0.75; }
       .ph-content.is-dark { color: var(--white); }

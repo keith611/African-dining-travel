@@ -239,7 +239,7 @@ export default function HomePage({ navigate, onBook }) {
               </div>
             </Reveal>
             <Reveal className="guide-teaser-visual" delay={100}>
-              <PlaceholderImage label="GUIDE COVER — PRINT EDITION" tone="gold" ratio="3 / 4" icon={ImageIcon} />
+              <PlaceholderImage label="GUIDE COVER — PRINT EDITION" tone="gold" ratio="16 / 9" icon={ImageIcon} />
               <div className="qr-placeholder" role="img" aria-label="QR code placeholder linking to the digital guide">
                 <div className="qr-grid">
                   {Array.from({ length: 25 }).map((_, i) => (
@@ -274,4 +274,3 @@ export default function HomePage({ navigate, onBook }) {
 /* ----------------------------------------------------------------------------
    8. PAGE: DESTINATIONS (listing)
 ---------------------------------------------------------------------------- */
-

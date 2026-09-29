@@ -13,7 +13,7 @@ export default function TravelGuidePage({ navigate }) {
       <section className="section section-sand">
         <div className="container guide-hero">
           <Reveal className="guide-hero-visual">
-            <PlaceholderImage label="GUIDE COVER — FULL EDITION" tone="gold" ratio="3 / 4" />
+            <PlaceholderImage label="GUIDE COVER — FULL EDITION" tone="gold" ratio="16 / 9" />
           </Reveal>
           <Reveal delay={80} className="guide-hero-copy">
             <Eyebrow tone="teal">Featured Guide</Eyebrow>
