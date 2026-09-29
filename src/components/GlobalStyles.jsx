@@ -95,6 +95,9 @@ export function GlobalStyles() {
       .ph-media-real img { width: 100%; height: 100%; object-fit: cover; display: block; }
       .ph-media-real.ph-media-full-frame { background: #F8F2E8; }
       .ph-media-real.ph-media-full-frame img { object-fit: contain; }
+      .ph-media-real.ph-media-blur-fill { isolation: isolate; background: #F8F2E8; }
+      .ph-media-real.ph-media-blur-fill::before { content: ""; position: absolute; inset: -10px; z-index: -1; background-image: linear-gradient(rgba(20,37,31,0.3), rgba(20,37,31,0.3)), var(--ph-media-image); background-size: cover; background-position: center; filter: blur(10px); transform: scale(1.04); }
+      .ph-media-real.ph-media-blur-fill img { position: relative; z-index: 1; }
       .ph-pattern { position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 16px); }
       .ph-content { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 1rem; color: var(--forest); opacity: 0.75; }
       .ph-content.is-dark { color: var(--white); }
