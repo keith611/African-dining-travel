@@ -193,8 +193,6 @@ export function GlobalStyles() {
       }
       .dest-card { display: flex; flex-direction: column; }
       .dest-card-media-btn { position: relative; border: none; background: none; padding: 0; display: block; width: 100%; border-radius: var(--radius-lg); overflow: hidden; }
-      .dest-card-media { transition: transform .6s ease; }
-      .dest-card-media-btn:hover .dest-card-media, .dest-card-media-btn:focus-visible .dest-card-media { transform: scale(1.05); }
       .dest-card-stamp { position: absolute; left: 16px; bottom: 16px; }
       .dest-card-body { padding-top: 18px; }
       .dest-card-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
@@ -227,8 +225,6 @@ export function GlobalStyles() {
       .journal-scroller { display: flex; gap: 22px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; }
       .journal-card { flex: 0 0 220px; scroll-snap-align: start; }
       .journal-card-media-btn { position: relative; display: block; border: none; background: none; padding: 0; width: 100%; border-radius: var(--radius-md); overflow: hidden; }
-      .journal-card-media { transition: transform .5s ease; }
-      .journal-card-media-btn:hover .journal-card-media { transform: scale(1.05); }
       .journal-card-stamp { position: absolute; left: 10px; bottom: 10px; font-size: 0.62rem; padding: 5px 10px 5px 6px; }
       .journal-card h3 { font-size: 1rem; margin-top: 14px; }
       .journal-card-loc { font-size: 0.78rem; color: #6b7268; }
@@ -241,8 +237,7 @@ export function GlobalStyles() {
       .exp-card, .dine-card { background: var(--white); border-radius: var(--radius-md); overflow: hidden; border: 1px solid rgba(20,37,31,0.06); display: flex; flex-direction: column; transition: box-shadow .3s ease, transform .3s ease; }
       .exp-card:hover, .dine-card:hover { box-shadow: 0 20px 40px -24px rgba(20,37,31,0.35); transform: translateY(-3px); }
       .exp-card-media-btn, .dine-card-media-btn { position: relative; border: none; background: none; padding: 0; display: block; width: 100%; }
-      .exp-card-media, .dine-card-media { transition: transform .5s ease; border-radius: 0; }
-      .exp-card-media-btn:hover .exp-card-media, .dine-card-media-btn:hover .dine-card-media { transform: scale(1.04); }
+      .exp-card-media, .dine-card-media { border-radius: 0; }
       .exp-card-tag { position: absolute; top: 12px; left: 12px; background: rgba(20,37,31,0.85); color: var(--sand); font-size: 0.66rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; font-weight: 700; }
       .exp-card-body, .dine-card-body { padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
       .exp-card-loc, .dine-card-loc { display: flex; align-items: center; gap: 5px; font-size: 0.76rem; color: var(--teal); font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
@@ -366,8 +361,6 @@ export function GlobalStyles() {
       @media (min-width: 640px) { .masonry { columns: 2; } }
       @media (min-width: 1024px) { .masonry { columns: 3; } }
       .masonry-item { display: block; width: 100%; border: none; background: none; padding: 0; margin-bottom: 16px; break-inside: avoid; border-radius: var(--radius-sm); overflow: hidden; }
-      .masonry-item .ph-media { transition: transform .5s ease; }
-      .masonry-item:hover .ph-media { transform: scale(1.04); }
 
       /* ---------- Modals / lightbox / booking ---------- */
       .modal-backdrop { position: fixed; inset: 0; background: rgba(20,37,31,0.7); display: flex; align-items: center; justify-content: center; z-index: 100; padding: 20px; animation: fadeIn .25s ease; }
