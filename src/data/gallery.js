@@ -52,6 +52,15 @@ export const GALLERY = [
   { id: "g48", label: "CAPE BUFFALO PORTRAIT", tall: true },
   { id: "g49", label: "ELEPHANT HERD BY THE RIVER" },
   { id: "g50", label: "HELL'S GATE ROCK HYRAX", destinationSlug: "kenya", tall: true },
+  { id: "g51", label: "BIG CAT TERRITORIES", destinationSlug: "maasai-mara", ratio: "3 / 4" },
+  { id: "g52", label: "BIRD IN TREE", ratio: "3 / 4" },
+  { id: "g53", label: "FLAMINGO BY WATER", ratio: "3 / 4" },
+  { id: "g54", label: "BIRD ON PATH", ratio: "3 / 4" },
+  { id: "g55", label: "WADING BIRD AMONG REEDS", ratio: "3 / 4" },
+  { id: "g56", label: "GREY HERON IN SHALLOWS", ratio: "3 / 4" },
+  { id: "g57", label: "HERON BY WATER", ratio: "3 / 4" },
+  { id: "g58", label: "BLACK AND WHITE BIRD", ratio: "3 / 4" },
+  { id: "g59", label: "TRAVEL GUIDE FEATURE IMAGE", ratio: "3 / 2" },
 ];
 
 // ── DEMO CONTENT ─────────────────────────────────────────────────────────
@@ -59,4 +68,3 @@ export const GALLERY = [
 // how the testimonials section looks with content in it. Replace with real
 // reviews when available, or set TESTIMONIALS to [] to hide the section —
 // TestimonialsSection below already handles the empty case.
-
