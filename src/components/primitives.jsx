@@ -8,6 +8,18 @@ import {
 import { useReveal } from "../hooks/useReveal.js";
 import { IMAGE_LIBRARY } from "../data/images.js";
 
+const FULL_PHOTO_LABELS = new Set([
+  "SAMBURU ZEBRA",
+  "SUNRISE BALLOON SAFARI",
+  "MARA BALLOON SAFARI IMAGE",
+  "BALLOONS AT DAWN",
+  "HOT AIR BALLOONS AT DAWN",
+  "MAASAI MARA BALLOON DAWN",
+  "BALLOON LAUNCH AT DAWN",
+  "RIVER VIEW FROM THE BALLOON",
+  "BALLOON OVER THE RIVER",
+]);
+
 export const TONE_GRADIENTS = {
   sand: "linear-gradient(135deg, #E8DDC8 0%, #F7F3EA 65%)",
   forest: "linear-gradient(135deg, #24463A 0%, #14251F 75%)",
@@ -32,9 +44,10 @@ export function PlaceholderImage({ label, ratio = "4 / 3", tone = "sand", icon: 
   const realSrc = IMAGE_LIBRARY[label];
 
   if (realSrc) {
+    const showFullImage = FULL_PHOTO_LABELS.has(label);
     return (
       <div
-        className={`ph-media ph-media-real ${rounded} ${className}`}
+        className={`ph-media ph-media-real ${showFullImage ? "ph-media-real-contain" : ""} ${rounded} ${className}`}
         style={{ aspectRatio: ratio }}
       >
         <img
