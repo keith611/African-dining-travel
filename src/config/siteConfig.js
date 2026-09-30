@@ -35,6 +35,7 @@ export const NAV_LINKS = [
   { label: "Experiences", page: "experiences" },
   { label: "Dining", page: "dining" },
   { label: "Travel Guide", page: "guide" },
+  { label: "Accommodation", page: "accommodation" },
   { label: "About", page: "about" },
   { label: "Contact", page: "contact" },
 ];
@@ -49,6 +50,7 @@ export const PAGE_META = {
   services: { title: "Our Services — Africa Dining & Travel Guide", desc: "Historical, adventure, cultural, professional and specialised guide services for your trip." },
   service: { title: "Our Services — Africa Dining & Travel Guide", desc: "Guide services for how you like to explore." },
   gallery: { title: "Gallery — Africa Dining & Travel Guide", desc: "Photography from across our African destinations." },
+  accommodation: { title: "Accommodation — Africa Dining & Travel Guide", desc: "Explore photographs of lodges, guest spaces and surrounding grounds." },
   about: { title: "About — Africa Dining & Travel Guide", desc: "Who plans your journey, and why." },
   contact: { title: "Contact — Africa Dining & Travel Guide", desc: "Get in touch to start planning your trip." },
 };

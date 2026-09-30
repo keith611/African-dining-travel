@@ -94,6 +94,8 @@ export function GlobalStyles() {
       .ph-media-real { background: var(--earth); }
       .ph-media-real img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
       .ph-media-real.ph-media-real-contain img { object-fit: contain; }
+      /* Accommodation thumbnails share one frame and show the complete source image. */
+      .ph-media-real.accommodation-media img { object-fit: fill; }
       .ph-pattern { position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 16px); }
       .ph-content { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 1rem; color: var(--forest); opacity: 0.75; }
       .ph-content.is-dark { color: var(--white); }
@@ -238,6 +240,9 @@ export function GlobalStyles() {
       .exp-card:hover, .dine-card:hover { box-shadow: 0 20px 40px -24px rgba(20,37,31,0.35); transform: translateY(-3px); }
       .exp-card-media-btn, .dine-card-media-btn { position: relative; border: none; background: none; padding: 0; display: block; width: 100%; }
       .exp-card-media, .dine-card-media { border-radius: 0; }
+      .accommodation-card { transition: box-shadow .3s ease; }
+      .accommodation-card:hover { transform: none; }
+      .accommodation-grid { align-items: stretch; }
       .exp-card-tag { position: absolute; top: 12px; left: 12px; background: rgba(20,37,31,0.85); color: var(--sand); font-size: 0.66rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; font-weight: 700; }
       .exp-card-body, .dine-card-body { padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
       .exp-card-loc, .dine-card-loc { display: flex; align-items: center; gap: 5px; font-size: 0.76rem; color: var(--teal); font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }

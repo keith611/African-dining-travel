@@ -44,6 +44,7 @@ export function Footer({ navigate }) {
             <li><A page="experiences" navigate={navigate}>Experiences</A></li>
             <li><A page="dining" navigate={navigate}>Dining</A></li>
             <li><A page="guide" navigate={navigate}>Travel Guide</A></li>
+            <li><A page="accommodation" navigate={navigate}>Accommodation</A></li>
             <li><A page="gallery" navigate={navigate}>Gallery</A></li>
           </ul>
         </div>
@@ -91,4 +92,3 @@ export function Footer({ navigate }) {
     </footer>
   );
 }
-

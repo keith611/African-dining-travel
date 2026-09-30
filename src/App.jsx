@@ -16,6 +16,7 @@ import TravelGuidePage from "./pages/TravelGuidePage.jsx";
 import ServicesPage from "./pages/ServicesPage.jsx";
 import ServiceDetailPage from "./pages/ServiceDetailPage.jsx";
 import GalleryPage from "./pages/GalleryPage.jsx";
+import AccommodationPage from "./pages/AccommodationPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import { LegalPage, TermsPage, NotFoundPage } from "./pages/SimplePages.jsx";
@@ -39,6 +40,7 @@ export default function App() {
     case "services": page = <ServicesPage navigate={navigate} />; break;
     case "service": page = <ServiceDetailPage id={route.param} navigate={navigate} />; break;
     case "gallery": page = <GalleryPage />; break;
+    case "accommodation": page = <AccommodationPage />; break;
     case "about": page = <AboutPage navigate={navigate} />; break;
     case "contact": page = <ContactPage />; break;
     case "privacy": page = <LegalPage title="Privacy Policy" />; break;
