@@ -103,8 +103,8 @@ export default function HomePage({ navigate, onBook }) {
         <div className="hero-content">
           <h1 className="hero-title">Discover Africa,<br />one honest itinerary at a time.</h1>
           <p className="hero-sub">
-            Extraordinary destinations, unforgettable journeys, and the cultures and kitchens
-            that make each corner of Africa distinct — planned by people who've actually been there.
+            Discover extraordinary destinations, unforgettable journeys, rich local cultures, and
+            distinctive kitchens across Africa, all planned by people who know the region firsthand.
           </p>
           <div className="hero-ctas">
             <Button variant="primary" onClick={() => navigate("destinations")} icon={ArrowRight}>Explore Destinations</Button>
