@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Check, ChevronLeft, ChevronRight, X, Send, Phone, MessageCircle } from "lucide-react";
 import { SITE_CONFIG, telHref, waHref } from "../config/siteConfig.js";
-import { BOOKABLE_COUNTRIES, BOOKABLE_DESTINATIONS, findBookableByName } from "../data/destinations.js";
+import { DESTINATIONS, BOOKABLE_COUNTRIES, BOOKABLE_DESTINATIONS, findBookableByName } from "../data/destinations.js";
 import { Button, Eyebrow } from "./primitives.jsx";
 
 export function BookingModal({ item, onClose }) {
@@ -184,4 +184,3 @@ export function BookingModal({ item, onClose }) {
 /* ----------------------------------------------------------------------------
    6. CARDS
 ---------------------------------------------------------------------------- */
-
