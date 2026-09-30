@@ -10,9 +10,16 @@ export default function ExperiencesPage({ navigate, onBook, initialDestination }
 
   useEffect(() => { if (initialDestination) setDestFilter(initialDestination); }, [initialDestination]);
 
-  const filtered = EXPERIENCES.filter(
-    (e) => (destFilter === "All" || e.destinationSlug === destFilter) && (catFilter === "All" || e.category === catFilter)
-  );
+  const selectedDestination = DESTINATIONS.find((destination) => destination.id === destFilter);
+  const filtered = EXPERIENCES.filter((experience) => {
+    const experienceDestination = DESTINATIONS.find((destination) => destination.id === experience.destinationSlug);
+    const matchesDestination =
+      destFilter === "All" ||
+      experience.destinationSlug === destFilter ||
+      (selectedDestination && !selectedDestination.hidden && experienceDestination?.country === selectedDestination.country);
+
+    return matchesDestination && (catFilter === "All" || experience.category === catFilter);
+  });
 
   return (
     <div className="page-shell">
