@@ -187,12 +187,9 @@ export function GlobalStyles() {
       .testimonial-dots button.is-active { background: var(--gold); width: 22px; border-radius: 5px; transition: width .3s ease; }
 
       /* ---------- Destination grid ---------- */
-      .dest-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-      .dest-grid-side { display: grid; grid-template-columns: 1fr; gap: 24px; }
-      @media (min-width: 760px) { .dest-grid-side { grid-template-columns: 1fr 1fr; } }
-      @media (min-width: 1080px) {
-        .dest-grid { grid-template-columns: 1.15fr 1fr; align-items: start; }
-      }
+      .dest-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+      @media (min-width: 760px) { .dest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (min-width: 1080px) { .dest-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
       .dest-card { display: flex; flex-direction: column; }
       .dest-card-media-btn { position: relative; border: none; background: none; padding: 0; display: block; width: 100%; border-radius: var(--radius-lg); overflow: hidden; }
       .dest-card-stamp { position: absolute; left: 16px; bottom: 16px; }

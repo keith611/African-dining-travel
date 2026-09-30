@@ -95,9 +95,6 @@ export function PartnersSection() {
 }
 
 export default function HomePage({ navigate, onBook }) {
-  const featured = VISIBLE_DESTINATIONS[0];
-  const rest = VISIBLE_DESTINATIONS.slice(1, 6);
-
   return (
     <>
       <section className="hero">
@@ -149,12 +146,9 @@ export default function HomePage({ navigate, onBook }) {
             tone="gold"
           />
           <div className="dest-grid">
-            <DestinationCard destination={featured} navigate={navigate} featured />
-            <div className="dest-grid-side">
-              {rest.map((d) => (
-                <DestinationCard key={d.id} destination={d} navigate={navigate} />
-              ))}
-            </div>
+            {VISIBLE_DESTINATIONS.slice(0, 6).map((destination) => (
+              <DestinationCard key={destination.id} destination={destination} navigate={navigate} />
+            ))}
           </div>
           <Reveal className="section-cta">
             <Button variant="secondary" onClick={() => navigate("destinations")} icon={ArrowRight}>View All Destinations</Button>
