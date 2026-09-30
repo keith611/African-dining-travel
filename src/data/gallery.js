@@ -61,6 +61,19 @@ export const GALLERY = [
   { id: "g57", label: "HERON BY WATER", tall: true },
   { id: "g58", label: "BLACK AND WHITE BIRD", tall: true },
   { id: "g59", label: "TRAVEL GUIDE FEATURE IMAGE" },
+  { id: "g60", label: "GIRAFFE AMONG GRASS", tall: true },
+  { id: "g61", label: "RHINO GRAZING" },
+  { id: "g62", label: "SHOREBIRDS ON SAND" },
+  { id: "g63", label: "GIRAFFES UNDER ACACIA" },
+  { id: "g64", label: "BAOBAB TREE IN DRY LANDSCAPE", tall: true },
+  { id: "g65", label: "ANTELOPE IN WOODLAND", tall: true },
+  { id: "g66", label: "WETLAND WITH DEAD TREES" },
+  { id: "g67", label: "LIONS RESTING UNDER TREE" },
+  { id: "g68", label: "ZEBRA HERD IN SAVANNAH" },
+  { id: "g69", label: "SAFARI LODGE BEDROOM" },
+  { id: "g70", label: "RIVER CASCADE", tall: true },
+  { id: "g71", label: "RIVER WALK IN SAFARI COUNTRY", tall: true },
+  { id: "g72", label: "ELAND IN WOODLAND", tall: true },
 ];
 
 // ── DEMO CONTENT ─────────────────────────────────────────────────────────
