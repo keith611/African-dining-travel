@@ -17,9 +17,8 @@ export const SITE_CONFIG = {
     facebook: "https://www.facebook.com/profile.php?id=61580357032854&mibextid=ZbWKwL",
     tiktok: "https://vm.tiktok.com/ZS9SRBGHbDMYy-KOqbn/",
   },
-  // Flip this to true only once a real booking API exists and is wired up.
-  // Until then every "Book" action is a request-only form (see BookingModal).
-  BOOKING_BACKEND_CONNECTED: false,
+  // Booking requests are wired to the Vercel API endpoint.
+  BOOKING_BACKEND_CONNECTED: true,
 };
 export function telHref(phone) { return phone ? `tel:${phone.replace(/[^\d+]/g, "")}` : null; }
 export function mailHref(email) { return email ? `mailto:${email}` : null; }

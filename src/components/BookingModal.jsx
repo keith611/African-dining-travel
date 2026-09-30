@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Check, ChevronLeft, ChevronRight, X, Send, Phone, MessageCircle } from "lucide-react";
-import { SITE_CONFIG, telHref, waHref } from "../config/siteConfig.js";
 import { DESTINATIONS, BOOKABLE_COUNTRIES, BOOKABLE_DESTINATIONS, findBookableByName } from "../data/destinations.js";
 import { Button, Eyebrow } from "./primitives.jsx";
 
@@ -12,6 +11,8 @@ export function BookingModal({ item, onClose }) {
   const [destinationId, setDestinationId] = useState("");
   const [travelDate, setTravelDate] = useState("");
   const [name, setName] = useState("");
+  const [isSending, setIsSending] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const dialogRef = useRef(null);
 
   useEffect(() => {
@@ -38,6 +39,8 @@ export function BookingModal({ item, onClose }) {
     setChildren(0);
     setTravelDate("");
     setName("");
+    setIsSending(false);
+    setSubmitError("");
     const destName = item.destinationName || DESTINATIONS.find((d) => d.id === item.destinationSlug)?.name;
     const resolved = findBookableByName(destName);
     if (resolved) {
@@ -55,6 +58,43 @@ export function BookingModal({ item, onClose }) {
   const destinationsForCountry = BOOKABLE_DESTINATIONS.filter((b) => b.country === country);
   const selectedDestination = BOOKABLE_DESTINATIONS.find((b) => b.id === destinationId);
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (isSending) return;
+
+    const formData = new FormData(event.currentTarget);
+    setIsSending(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          item: item.title || item.name || "Travel request",
+          price: item.price || item.priceRange || "",
+          country,
+          destination: selectedDestination?.name || "",
+          travelDate,
+          adults,
+          children,
+          name: name.trim(),
+          email: String(formData.get("email") || "").trim(),
+          phone: String(formData.get("phone") || "").trim(),
+          notes: String(formData.get("notes") || "").trim(),
+          website: String(formData.get("website") || "").trim(),
+        }),
+      });
+      const result = await response.json().catch(() => null);
+      if (!response.ok || !result?.ok) throw new Error("Booking request could not be sent.");
+      setStep("confirmed");
+    } catch {
+      setSubmitError("We couldn't send your request. Please try again or email africadining1@gmail.com.");
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   return (
     <div className="modal-backdrop" onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="modal booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title" tabIndex={-1} ref={dialogRef}>
@@ -68,15 +108,7 @@ export function BookingModal({ item, onClose }) {
               {destName ? `${destName} · ` : ""}{item.price || item.priceRange || ""}
             </p>
 
-            <form
-              className="booking-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                // No backend is connected yet — this only advances local UI
-                // state. See SITE_CONFIG.BOOKING_BACKEND_CONNECTED.
-                setStep("confirmed");
-              }}
-            >
+            <form className="booking-form" onSubmit={handleSubmit}>
               <div className="field-row">
                 <div className="field">
                   <label htmlFor="bk-country">Country</label>
@@ -148,11 +180,17 @@ export function BookingModal({ item, onClose }) {
                 <label htmlFor="bk-notes">Special requests (optional)</label>
                 <textarea id="bk-notes" name="notes" rows={2} placeholder="Dietary needs, arrival time, special requests…" />
               </div>
+              <div className="sr-only" aria-hidden="true">
+                <label htmlFor="bk-website">Leave this field blank</label>
+                <input id="bk-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+              </div>
               <p className="booking-note">
-                This is a request form, not a live booking — nothing is charged or reserved yet.
-                Submitting sends a request our team confirms by email within 24 hours.
+                This is a booking request, not a live reservation — nothing is charged or reserved yet.
               </p>
-              <Button type="submit" variant="primary" className="booking-submit">Request to Book</Button>
+              {submitError && <p className="field-error" role="alert">{submitError}</p>}
+              <Button type="submit" variant="primary" className="booking-submit" disabled={isSending}>
+                {isSending ? "Sending request…" : "Request to Book"}
+              </Button>
             </form>
           </>
         )}
