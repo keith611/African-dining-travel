@@ -148,6 +148,9 @@ export default function DestinationDetailPage({ id, navigate, onBook }) {
           ) : (
             <p className="section-note">Accommodation partners for {destination.name} haven't been confirmed yet — this section will list vetted places to stay once they're finalised.</p>
           )}
+          <Reveal className="section-cta">
+            <Button variant="secondary" onClick={() => navigate("accommodation")} icon={ArrowRight}>Browse All Accommodation</Button>
+          </Reveal>
         </div>
       </section>
 
