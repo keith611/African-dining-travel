@@ -433,9 +433,16 @@ export function GlobalStyles() {
       .whatsapp-float:hover { transform: scale(1.08); }
 
       /* ---------- Contact ---------- */
-      .contact-grid { display: grid; grid-template-columns: 1fr; gap: 44px; }
-      @media (min-width: 900px) { .contact-grid { grid-template-columns: 1.3fr 1fr; } }
+      .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 44px; }
+      @media (min-width: 900px) { .contact-grid { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); } }
+      .contact-form-wrap, .contact-form { min-width: 0; width: 100%; }
       .contact-form { display: flex; flex-direction: column; gap: 18px; background: var(--white); padding: 32px; border-radius: var(--radius-md); border: 1px solid rgba(20,37,31,0.08); }
+      .contact-form .field-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .contact-form .field, .contact-form .field input, .contact-form .field select, .contact-form .field textarea { min-width: 0; width: 100%; }
+      @media (max-width: 640px) {
+        .contact-form { padding: 22px 18px; }
+        .contact-form .field-row { grid-template-columns: minmax(0, 1fr); }
+      }
       .contact-success { background: var(--white); padding: 40px 32px; border-radius: var(--radius-md); text-align: center; border: 1px solid rgba(20,37,31,0.08); }
       .contact-info { display: flex; flex-direction: column; gap: 20px; }
       .contact-info-block h3 { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--forest); margin-bottom: 4px; }
