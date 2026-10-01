@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import { DESTINATIONS } from "../data/destinations.js";
+import { DESTINATIONS, VISIBLE_DESTINATIONS } from "../data/destinations.js";
 import { DestinationCard } from "../components/Cards.jsx";
 import { PageHero } from "../components/PageHero.jsx";
 
 export default function DestinationsPage({ navigate }) {
-  const placeDestinations = DESTINATIONS.filter((d) => d.name !== d.country);
+  // Feature the six top-level destinations first, followed by their named
+  // places. The top-level entries also remain as photo-led cards on Home.
+  const placeDestinations = [
+    ...VISIBLE_DESTINATIONS,
+    ...DESTINATIONS.filter((d) => d.name !== d.country),
+  ];
   const regions = ["All", ...Array.from(new Set(placeDestinations.flatMap((d) => d.tags)))];
   const [filter, setFilter] = useState("All");
-  // Keep broad country pages out of this list so every card is a named place.
+  // The six country-level destinations lead the listing; named places follow.
   const filtered = filter === "All"
     ? placeDestinations
     : placeDestinations.filter((d) => d.tags.includes(filter));

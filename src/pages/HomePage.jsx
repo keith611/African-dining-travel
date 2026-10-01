@@ -147,7 +147,7 @@ export default function HomePage({ navigate, onBook }) {
           />
           <div className="dest-grid">
             {VISIBLE_DESTINATIONS.slice(0, 6).map((destination) => (
-              <DestinationCard key={destination.id} destination={destination} navigate={navigate} />
+              <DestinationCard key={destination.id} destination={destination} navigate={navigate} linkToDetails={false} />
             ))}
           </div>
           <Reveal className="section-cta">

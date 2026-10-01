@@ -9,27 +9,39 @@ import {
   CoordStamp,
 } from "./primitives.jsx";
 
-export function DestinationCard({ destination, navigate, featured = false }) {
+export function DestinationCard({ destination, navigate, featured = false, linkToDetails = true }) {
+  const media = (
+    <>
+      <PlaceholderImage
+        label={destination.cardImage}
+        tone={destination.accent}
+        ratio="4 / 5"
+        className="dest-card-media"
+      />
+      <CoordStamp label={destination.coordinates} className="dest-card-stamp" />
+    </>
+  );
+
   return (
     <Reveal className={`dest-card ${featured ? "dest-card-featured" : ""}`}>
-      <button className="dest-card-media-btn" onClick={() => navigate("destination", destination.id)} aria-label={`Explore ${destination.name}`}>
-        <PlaceholderImage
-          label={destination.cardImage}
-          tone={destination.accent}
-          ratio="4 / 5"
-          className="dest-card-media"
-        />
-        <CoordStamp label={destination.coordinates} className="dest-card-stamp" />
-      </button>
+      {linkToDetails ? (
+        <button className="dest-card-media-btn" onClick={() => navigate("destination", destination.id)} aria-label={`Explore ${destination.name}`}>
+          {media}
+        </button>
+      ) : (
+        <div className="dest-card-media-btn">{media}</div>
+      )}
       <div className="dest-card-body">
         <div className="dest-card-heading">
           <h3>{destination.name}</h3>
           <span className="dest-card-country"><MapPin size={13} /> {destination.country}</span>
         </div>
         <p>{destination.tagline}</p>
-        <A page="destination" param={destination.id} navigate={navigate} className="card-link">
-          Explore {destination.name} <ArrowRight size={15} />
-        </A>
+        {linkToDetails && (
+          <A page="destination" param={destination.id} navigate={navigate} className="card-link">
+            Explore {destination.name} <ArrowRight size={15} />
+          </A>
+        )}
       </div>
     </Reveal>
   );
