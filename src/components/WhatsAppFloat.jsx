@@ -12,9 +12,4 @@ export function WhatsAppFloat() {
   );
 }
 
-/* ----------------------------------------------------------------------------
-   5. BOOKING MODAL — explicitly a request form, not a live booking engine.
-   There is no backend yet (see audit). Flip SITE_CONFIG.BOOKING_BACKEND_CONNECTED
-   only once a real API exists, and swap the onSubmit below for a real POST.
----------------------------------------------------------------------------- */
-
+/* Floating WhatsApp contact action. */

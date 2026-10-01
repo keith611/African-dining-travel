@@ -21,7 +21,7 @@ export const SITE_CONFIG = {
         tiktok: "https://vm.tiktok.com/ZS9SRBGHbDMYy-KOqbn/",
     },
 
-    BOOKING_BACKEND_CONNECTED: false,
+    BOOKING_BACKEND_CONNECTED: true,
 };
 
 export function telHref(phone) {

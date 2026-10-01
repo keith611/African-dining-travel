@@ -67,26 +67,40 @@ export function BookingModal({ item, onClose }) {
     setSubmitError("");
 
     try {
-      const response = await fetch("/api/booking", {
+      if (String(formData.get("website") || "").trim()) {
+        setStep("confirmed");
+        return;
+      }
+
+      const emailjs = import.meta.env;
+      if (!emailjs.VITE_EMAILJS_SERVICE_ID || !emailjs.VITE_EMAILJS_TEMPLATE_ID || !emailjs.VITE_EMAILJS_PUBLIC_KEY) {
+        throw new Error("Booking email is not configured yet.");
+      }
+
+      const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          item: item.title || item.name || "Travel request",
-          price: item.price || item.priceRange || "",
-          country,
-          destination: selectedDestination?.name || "",
-          travelDate,
-          adults,
-          children,
-          name: name.trim(),
-          email: String(formData.get("email") || "").trim(),
-          phone: String(formData.get("phone") || "").trim(),
-          notes: String(formData.get("notes") || "").trim(),
-          website: String(formData.get("website") || "").trim(),
+          service_id: emailjs.VITE_EMAILJS_SERVICE_ID,
+          template_id: emailjs.VITE_EMAILJS_TEMPLATE_ID,
+          user_id: emailjs.VITE_EMAILJS_PUBLIC_KEY,
+          template_params: {
+            name: name.trim(),
+            email: String(formData.get("email") || "").trim(),
+            phone: String(formData.get("phone") || "").trim(),
+            country,
+            destination: selectedDestination?.name || "",
+            travel_date: travelDate,
+            adults,
+            children,
+            experience: item.title || item.name || "Travel request",
+            price: item.price || item.priceRange || "Not specified",
+            notes: String(formData.get("notes") || "").trim() || "None",
+            website: String(formData.get("website") || "").trim(),
+          },
         }),
       });
-      const result = await response.json().catch(() => null);
-      if (!response.ok || !result?.ok) throw new Error("Booking request could not be sent.");
+      if (!response.ok) throw new Error("Booking request could not be sent.");
       setStep("confirmed");
     } catch {
       setSubmitError("We couldn't send your request. Please try again or email africadining1@gmail.com.");

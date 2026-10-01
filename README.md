@@ -11,13 +11,15 @@
    Every future push redeploys the same URL automatically.
 
 ## Booking request emails
-- Booking form submissions are sent to `africadining1@gmail.com` through a Vercel Function and Resend.
-- Add `RESEND_API_KEY` and `BOOKING_FROM_EMAIL` as Vercel environment variables for Production and redeploy.
-- `BOOKING_FROM_EMAIL` must use a domain verified in Resend. Keep the API key in Vercel's environment settings; never place it in client-side code.
-- Copy `.env.example` to `.env.local` for local setup, using your own secret values.
+- Booking requests are sent to `africadining1@gmail.com` using EmailJS from the browser; no custom sending domain or Vercel email function is required.
+- In the client's EmailJS account, connect the company's Gmail under **Email Services**, then create an email template addressed to `africadining1@gmail.com`.
+- Set the template's **Reply-To** field to `{{email}}`. Use `{{name}}`, `{{email}}`, `{{phone}}`, `{{country}}`, `{{destination}}`, `{{travel_date}}`, `{{adults}}`, `{{children}}`, `{{experience}}`, `{{price}}`, and `{{notes}}` for booking details in the subject/body.
+- Add the EmailJS service ID, template ID, and public key to Vercel as `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY`, then redeploy. These are browser-side EmailJS identifiers, not private passwords; do not use an EmailJS private key here.
+- Copy `.env.example` to `.env.local` for local development and fill in the same three values.
+- In EmailJS **Security → Allowed domains**, allow the production site domain. Add `localhost` only if local testing is needed.
 
 ## Notes
-- The booking form uses a Vercel serverless function. The contact form remains a UI-only placeholder.
+- The contact form remains a UI-only placeholder.
 - All photography is embedded directly in src/App.jsx as base64 data.
   This keeps the project self-contained for review, but the JS bundle is
   large (~13MB+) as a result. Before a real public launch, migrate images
