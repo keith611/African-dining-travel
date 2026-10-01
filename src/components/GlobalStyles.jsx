@@ -288,6 +288,7 @@ export function GlobalStyles() {
       .detail-hero { position: relative; height: 62vh; min-height: 420px; display: flex; align-items: flex-end; overflow: hidden; }
       .detail-hero-media { position: absolute; inset: 0; height: 100%; }
       .detail-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+      .detail-hero-media.ph-media-real-contain.detail-hero-media-fill img { object-fit: fill; }
       .detail-hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 24px 44px; width: 100%; color: var(--white); }
       .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: rgba(247,243,234,0.8); margin-bottom: 18px; flex-wrap: wrap; }
       .breadcrumb a:hover { color: var(--gold-light); }

@@ -19,7 +19,13 @@ export default function DestinationDetailPage({ id, navigate, onBook }) {
   return (
     <div className="page-shell">
       <section className="detail-hero">
-        <PlaceholderImage label={destination.heroImage} tone={destination.accent} ratio="auto" rounded="rounded-none" className="detail-hero-media" />
+        <PlaceholderImage
+          label={destination.heroImage}
+          tone={destination.accent}
+          ratio="auto"
+          rounded="rounded-none"
+          className={`detail-hero-media ${destination.heroImage === "HOT AIR BALLOONS AT DAWN" ? "detail-hero-media-fill" : ""}`}
+        />
         <div className="hero-overlay" aria-hidden="true" />
         <div className="detail-hero-content">
           <nav className="breadcrumb" aria-label="Breadcrumb">
