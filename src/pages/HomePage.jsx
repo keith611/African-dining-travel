@@ -15,7 +15,6 @@ import {
 import { PARTNERS } from "../data/partners.js";
 import { TESTIMONIALS, TESTIMONIALS_IS_DEMO } from "../data/testimonials.js";
 import { VISIBLE_DESTINATIONS, DESTINATIONS } from "../data/destinations.js";
-import { DINING } from "../data/dining.js";
 import { SERVICES } from "../data/services.js";
 import {
   Reveal,
@@ -27,7 +26,7 @@ import {
   A,
   Button,
 } from "../components/primitives.jsx";
-import { DestinationCard, ExperienceCard, DiningCard } from "../components/Cards.jsx";
+import { DestinationCard, ExperienceCard } from "../components/Cards.jsx";
 
 export function TestimonialsSection() {
   const [index, setIndex] = useState(0);
@@ -179,20 +178,6 @@ export default function HomePage({ navigate, onBook }) {
         </div>
       </section>
 
-
-      <section className="section section-forest">
-        <div className="container">
-          <SectionIntro eyebrow="Dining" title="The table is part of the itinerary" tone="gold" align="left" />
-          <div className="dine-grid">
-            {DINING.slice(0, 3).map((d) => (
-              <DiningCard key={d.id} item={d} navigate={navigate} onBook={onBook} />
-            ))}
-          </div>
-          <Reveal className="section-cta">
-            <Button variant="secondary" className="btn-on-dark" onClick={() => navigate("dining")} icon={ArrowRight}>Explore Dining</Button>
-          </Reveal>
-        </div>
-      </section>
 
       <TestimonialsSection />
 
