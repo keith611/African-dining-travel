@@ -10,7 +10,6 @@ import {
   UtensilsCrossed,
   Users,
   Sparkles,
-  ImageIcon,
 } from "lucide-react";
 import { PARTNERS } from "../data/partners.js";
 import { TESTIMONIALS, TESTIMONIALS_IS_DEMO } from "../data/testimonials.js";
@@ -180,36 +179,6 @@ export default function HomePage({ navigate, onBook }) {
 
 
       <TestimonialsSection />
-
-      <section className="section section-earth">
-        <div className="container">
-          <div className="guide-teaser">
-            <Reveal className="guide-teaser-copy">
-              <Eyebrow tone="teal">Travel Guide</Eyebrow>
-              <h2 className="section-title">The Africa Dining &amp; Travel Guide</h2>
-              <p>
-                Our field guide to the region — destination notes, seasonal advice and the
-                dining rooms worth planning a stop around. Get the digital edition, or scan
-                the code at any partner location.
-              </p>
-              <div className="hero-ctas">
-                <Button variant="primary" onClick={() => navigate("guide")} icon={ArrowRight}>Open the Travel Guide</Button>
-              </div>
-            </Reveal>
-            <Reveal className="guide-teaser-visual" delay={100}>
-              <PlaceholderImage label="GUIDE COVER — PRINT EDITION" tone="gold" ratio="16 / 9" icon={ImageIcon} />
-              <div className="qr-placeholder" role="img" aria-label="QR code placeholder linking to the digital guide">
-                <div className="qr-grid">
-                  {Array.from({ length: 25 }).map((_, i) => (
-                    <span key={i} className={i % 2 === 0 ? "on" : ""} />
-                  ))}
-                </div>
-                <span>Scan for the digital guide</span>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
 
       <PartnersSection />
 
