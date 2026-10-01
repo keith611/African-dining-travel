@@ -15,7 +15,6 @@ import {
 import { PARTNERS } from "../data/partners.js";
 import { TESTIMONIALS, TESTIMONIALS_IS_DEMO } from "../data/testimonials.js";
 import { VISIBLE_DESTINATIONS, DESTINATIONS } from "../data/destinations.js";
-import { EXPERIENCES } from "../data/experiences.js";
 import { DINING } from "../data/dining.js";
 import { SERVICES } from "../data/services.js";
 import {
@@ -180,26 +179,6 @@ export default function HomePage({ navigate, onBook }) {
         </div>
       </section>
 
-      <section className="section section-sand">
-        <div className="container">
-          <SectionIntro eyebrow="Field Journal" title="A few experiences worth planning around" tone="gold" />
-          <div className="journal-scroller">
-            {EXPERIENCES.slice(0, 5).map((exp) => {
-              const destination = DESTINATIONS.find((d) => d.id === exp.destinationSlug);
-              return (
-                <Reveal key={exp.id} className="journal-card">
-                  <button onClick={() => navigate("experience", exp.id)} aria-label={`View ${exp.title}`} className="journal-card-media-btn">
-                    <PlaceholderImage label={exp.image} tone={destination?.accent || "gold"} ratio="3 / 4" className="journal-card-media" />
-                    <CoordStamp label={destination?.coordinates || ""} className="journal-card-stamp" />
-                  </button>
-                  <h3><A page="experience" param={exp.id} navigate={navigate}>{exp.title}</A></h3>
-                  <span className="journal-card-loc">{destination?.name}, {destination?.country}</span>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       <section className="section section-forest">
         <div className="container">
