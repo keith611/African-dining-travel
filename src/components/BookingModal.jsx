@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Check, ChevronLeft, ChevronRight, X, Send, Phone, MessageCircle } from "lucide-react";
 import { DESTINATIONS, BOOKABLE_COUNTRIES, BOOKABLE_DESTINATIONS, findBookableByName } from "../data/destinations.js";
+import { EMAILJS_CONFIG } from "../config/emailjs.js";
 import { Button, Eyebrow } from "./primitives.jsx";
 
 export function BookingModal({ item, onClose }) {
@@ -72,18 +73,13 @@ export function BookingModal({ item, onClose }) {
         return;
       }
 
-      const emailjs = import.meta.env;
-      if (!emailjs.VITE_EMAILJS_SERVICE_ID || !emailjs.VITE_EMAILJS_TEMPLATE_ID || !emailjs.VITE_EMAILJS_PUBLIC_KEY) {
-        throw new Error("Booking email is not configured yet.");
-      }
-
       const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          service_id: emailjs.VITE_EMAILJS_SERVICE_ID,
-          template_id: emailjs.VITE_EMAILJS_TEMPLATE_ID,
-          user_id: emailjs.VITE_EMAILJS_PUBLIC_KEY,
+          service_id: EMAILJS_CONFIG.serviceId,
+          template_id: EMAILJS_CONFIG.templateId,
+          user_id: EMAILJS_CONFIG.publicKey,
           template_params: {
             name: name.trim(),
             email: String(formData.get("email") || "").trim(),
