@@ -237,6 +237,7 @@ export function GlobalStyles() {
       .exp-card:hover, .dine-card:hover { box-shadow: 0 20px 40px -24px rgba(20,37,31,0.35); transform: translateY(-3px); }
       .exp-card-media-btn, .dine-card-media-btn { position: relative; border: none; background: none; padding: 0; display: block; width: 100%; }
       .exp-card-media, .dine-card-media { border-radius: 0; }
+      .exp-card-media-fill.ph-media-real-contain img { object-fit: fill; }
       .accommodation-card { transition: box-shadow .3s ease; }
       .accommodation-card:hover { transform: none; }
       .accommodation-grid { align-items: stretch; }

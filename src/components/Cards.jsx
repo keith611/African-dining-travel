@@ -52,7 +52,12 @@ export function ExperienceCard({ experience, navigate, onBook }) {
   return (
     <Reveal className="exp-card">
       <button className="exp-card-media-btn" onClick={() => navigate("experience", experience.id)} aria-label={`View ${experience.title}`}>
-        <PlaceholderImage label={experience.image} tone={destination?.accent || "sand"} ratio="4 / 3" className="exp-card-media" />
+        <PlaceholderImage
+          label={experience.image}
+          tone={destination?.accent || "sand"}
+          ratio="4 / 3"
+          className={`exp-card-media ${experience.image === "MARA BALLOON SAFARI IMAGE" ? "exp-card-media-fill" : ""}`}
+        />
         <span className="exp-card-tag">{experience.category}</span>
       </button>
       <div className="exp-card-body">
