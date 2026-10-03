@@ -52,8 +52,8 @@ export default function ExperiencesPage({ navigate, onBook, initialDestination }
           <div className="value-grid value-grid-3">
             <Reveal className="value-card">
               <span className="value-icon"><Users size={22} strokeWidth={1.5} /></span>
-              <h3>Group Safaris</h3>
-              <p>Scheduled group departures, run with partners including Somak Safaris, Safari Trails and Roy Safaris.</p>
+              <h3>Group Departures</h3>
+              <p>Scheduled group departures run with partners across the globe.</p>
             </Reveal>
             <Reveal delay={80} className="value-card">
               <span className="value-icon"><Compass size={22} strokeWidth={1.5} /></span>
